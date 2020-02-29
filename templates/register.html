@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <style>
+        body{
+            background-color: #f9f9f9;
+        }
+        .hello{
+            padding-top: 150px;
+            font-size: 20px;
+            color: #999;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+        }
+        form{
+            text-align: center;
+            height: 350px;
+            line-height: 50px;
+            color: #999;
+        }
+        .btn{
+            margin-top: 20px;
+            border: 0px;
+            width: 100px;
+            height: 50px;
+            border-radius: 5px;
+            transition: all 0.5s;
+        }
+        .btn:hover{
+            background-color: #888;
+            width: 100px;
+            height: 50px;
+        }
+        form input{
+            border: 0px;
+            width: 200px;
+            height: 25px;
+            border-radius: 3px;
+            transition: all 0.5s;
+        }
+        form input:hover{
+            width: 210px;
+            height: 30px;
+            box-shadow: 1px 1px 3px #999;
+        }
+    </style>
+    <script>
+        function cp(){
+            var c = document.getElementById("zh").value;
+            var a = document.getElementById("mm").value;
+            var b = document.getElementById("qrmm").value;
+            if(a == "" || b == "" || c == ""){
+                alert("账号密码不能为空");        //此处判断是否为空
+                if (event.preventDefault){
+                    event.preventDefault();
+                }
+                else{                           //为空的话就使控件事件无效化
+                    event.returnValue = false;
+                }
+            }
+            else if(a != b){
+                alert("两次输入密码不一致");    //此处判断两次密码是否一致
+                if (event.preventDefault){
+                    event.preventDefault();
+                }
+                else{                           //不一致的话就使控件事件无效化
+                    event.returnValue = false;
+                }
+            }
+            else{
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="hello"><h1>注册</h1></div>
+    <form action="" method="POST">      <!--form是表单元素，form内是一个整体，method为发送请求的类别-->
+        <span>账&ensp;&ensp;&ensp;&ensp;号</span>
+        <input type="text" name="zh" id="zh">
+        <br>
+        <span>密&ensp;&ensp;&ensp;&ensp;码</span>
+        <input type="password" name="mm" id="mm">
+        <br>
+        <span>确认密码</span>
+        <input type="password" name="qrmm" id="qrmm">
+        <br>                            <!--submit为提交，向服务器发送请求，包含了form内其他控件的value-->
+        <input onclick="cp()" class="btn" type="submit" name="sub" value="注册">
+    </form>
+</body>
+</html>
